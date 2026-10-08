@@ -56,8 +56,8 @@ Follow these steps to run the dashboard locally. The creation of a python virtua
 1. Copy the repository on your device
     
     ```
-    git clone
-    cd 
+    git clone https://github.com/adb-coding/fuel-analysis.git
+    cd fuel-analysis
     ```
 2. Install the required libraries 
     
