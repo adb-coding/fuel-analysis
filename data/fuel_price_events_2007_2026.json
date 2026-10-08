@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "description": "Timeline di eventi politici, geopolitici, di mercato e fiscali rilevanti per l'analisi dei prezzi europei di benzina Euro95 e diesel.",
+    "period_start": "2007-01-01",
+    "period_end": "2026-09-21",
+    "coverage": "Eventi selezionati; maggiore dettaglio dal 2025, con particolare dettaglio nel 2026.",
+    "schema": [
+      "id",
+      "event",
+      "date",
+      "description",
+      "type",
+      "country",
+      "source"
+    ]
+  },
+  "events": [
+    {
+      "id": "EVT-2007-01",
+      "event": "Picco del prezzo del petrolio e tensioni geopolitiche",
+      "date": "2007-11-01",
+      "description": "Nel 2007 il mercato petrolifero entra in una fase di forte rialzo, sostenuta dalla crescita della domanda globale, dalla debolezza del dollaro e da persistenti rischi geopolitici.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "id": "EVT-2008-01",
+      "event": "Crisi finanziaria e crollo del petrolio",
+      "date": "2008-09-15",
+      "description": "L'aggravarsi della crisi finanziaria globale segna l'inizio di un forte deterioramento della domanda attesa di petrolio e della successiva caduta dei prezzi.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+    },
+    {
+      "id": "EVT-2009-01",
+      "event": "Tagli OPEC in risposta al crollo della domanda",
+      "date": "2009-01-01",
+      "description": "I tagli alla produzione OPEC contribuiscono al tentativo di stabilizzare il mercato dopo il crollo dei prezzi del 2008.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/178.htm"
+    },
+    {
+      "id": "EVT-2011-02",
+      "event": "Crisi libica e interruzione delle forniture",
+      "date": "2011-02-17",
+      "description": "L'insurrezione in Libia interrompe una parte significativa della produzione e delle esportazioni libiche e aumenta il premio per il rischio geopolitico sul petrolio.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-2011"
+    },
+    {
+      "id": "EVT-2011-03",
+      "event": "Intervento internazionale in Libia",
+      "date": "2011-03-19",
+      "description": "L'avvio dell'intervento militare internazionale in Libia mantiene elevato il rischio geopolitico sul mercato petrolifero.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.un.org/press/en/2011/sc10200.doc.htm"
+    },
+    {
+      "id": "EVT-2012-01",
+      "event": "Embargo UE sul petrolio iraniano",
+      "date": "2012-01-23",
+      "description": "Il Consiglio dell'UE adotta un embargo sul petrolio iraniano nell'ambito delle misure legate al programma nucleare iraniano.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/press/press-releases/2012/01/23/iran-eu-adopts-new-sanctions/"
+    },
+    {
+      "id": "EVT-2014-11",
+      "event": "OPEC mantiene la produzione",
+      "date": "2014-11-27",
+      "description": "L'OPEC decide di mantenere invariato il proprio obiettivo produttivo, contribuendo alla successiva fase di forte ribasso del prezzo del greggio.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/2937.htm"
+    },
+    {
+      "id": "EVT-2015-07",
+      "event": "Accordo sul nucleare iraniano",
+      "date": "2015-07-14",
+      "description": "Viene concluso il JCPOA tra Iran e i principali partner internazionali, creando prospettive di maggiore disponibilità futura di petrolio iraniano sul mercato.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/policies/sanctions-against-iran/jcpoa-restrictive-measures/"
+    },
+    {
+      "id": "EVT-2016-11",
+      "event": "Accordo OPEC per il taglio della produzione",
+      "date": "2016-11-30",
+      "description": "L'OPEC raggiunge un accordo per ridurre la produzione, seguito dall'accordo con produttori non-OPEC.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/3920.htm"
+    },
+    {
+      "id": "EVT-2018-05",
+      "event": "Ritiro degli Stati Uniti dal JCPOA",
+      "date": "2018-05-08",
+      "description": "Donald Trump annuncia il ritiro degli Stati Uniti dall'accordo sul nucleare iraniano e il ripristino delle sanzioni statunitensi.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.consilium.europa.eu/en/policies/sanctions-against-iran/jcpoa-restrictive-measures/"
+    },
+    {
+      "id": "EVT-2018-11",
+      "event": "Entrata in vigore delle sanzioni USA sul petrolio iraniano",
+      "date": "2018-11-05",
+      "description": "Entrano in vigore le principali sanzioni statunitensi reintrodotte dopo il ritiro dal JCPOA, comprese quelle riguardanti il settore petrolifero iraniano.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://home.treasury.gov/news/press-releases/sm547"
+    },
+    {
+      "id": "EVT-2019-09",
+      "event": "Attacchi alle infrastrutture petrolifere saudite",
+      "date": "2019-09-14",
+      "description": "Gli attacchi contro Abqaiq e Khurais in Arabia Saudita provocano una temporanea forte interruzione della capacità produttiva e un'impennata del rischio geopolitico.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-september-2019"
+    },
+    {
+      "id": "EVT-2020-03",
+      "event": "Fallimento dell'accordo OPEC+ e guerra dei prezzi",
+      "date": "2020-03-06",
+      "description": "Il mancato accordo OPEC+ sui tagli alla produzione viene seguito da una fase di forte aumento dell'offerta mentre la domanda mondiale inizia a crollare.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-march-2020"
+    },
+    {
+      "id": "EVT-2020-03-11",
+      "event": "Pandemia COVID-19",
+      "date": "2020-03-11",
+      "description": "L'OMS caratterizza il COVID-19 come pandemia; le restrizioni alla mobilità producono un drastico shock negativo sulla domanda di carburanti.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.who.int/news/item/11-03-2020-who-director-general-s-remarks-at-the-media-briefing-on-2019-ncov-on-11-march-2020"
+    },
+    {
+      "id": "EVT-2020-04",
+      "event": "Grande accordo OPEC+ sui tagli",
+      "date": "2020-04-12",
+      "description": "I paesi OPEC+ concordano tagli produttivi senza precedenti per contrastare il crollo della domanda provocato dalla pandemia.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/5870.htm"
+    },
+    {
+      "id": "EVT-2021-03",
+      "event": "Blocco del Canale di Suez",
+      "date": "2021-03-23",
+      "description": "La nave Ever Given blocca il Canale di Suez, creando una temporanea perturbazione delle rotte commerciali e dei flussi energetici.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-april-2021"
+    },
+    {
+      "id": "EVT-2021-07",
+      "event": "OPEC+ mantiene il percorso di aumento della produzione",
+      "date": "2021-07-18",
+      "description": "OPEC+ conferma il proseguimento del graduale aumento dell'offerta mentre la domanda globale recupera dalla pandemia.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/6507.htm"
+    },
+    {
+      "id": "EVT-2022-02",
+      "event": "Invasione russa dell'Ucraina",
+      "date": "2022-02-24",
+      "description": "L'invasione russa dell'Ucraina produce un forte shock geopolitico sui mercati energetici europei.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/policies/sanctions-against-russia/"
+    },
+    {
+      "id": "EVT-2022-03",
+      "event": "Prima riduzione straordinaria delle accise in Italia",
+      "date": "2022-03-21",
+      "description": "L'Italia riduce temporaneamente le accise su benzina e gasolio in risposta all'aumento eccezionale dei prezzi energetici.",
+      "type": "fiscal",
+      "country": "IT",
+      "source": "https://www.protezionecivile.gov.it/en/normativa/dl-n-21-del-21-marzo-2022/"
+    },
+    {
+      "id": "EVT-2022-06",
+      "event": "Embargo UE sul petrolio russo",
+      "date": "2022-06-03",
+      "description": "L'UE adotta il sesto pacchetto di sanzioni, comprendente il divieto di importazione di petrolio greggio e prodotti petroliferi russi via mare.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/policies/sanctions-against-russia/timeline-sanctions-against-russia/"
+    },
+    {
+      "id": "EVT-2022-09",
+      "event": "Nuova riduzione temporanea delle accise in Italia",
+      "date": "2022-09-21",
+      "description": "Viene prorogata la riduzione temporanea delle accise su benzina e gasolio.",
+      "type": "fiscal",
+      "country": "IT",
+      "source": "https://def.giustiziatributaria.gov.it/DocTribFrontend/getArticoloDetailFromResultList.do?FROM_SEARCH=true&codiceOrdinamento=200000100000000&id=%7B7F1C0944-08B5-492E-8C51-14EC31EB75CF%7D&idAttoNormativo=%7BDB76F595-6821-47EB-8634-C660355EFDD8%7D&numeroArticolo=Articolo+1"
+    },
+    {
+      "id": "EVT-2022-12",
+      "event": "Price cap UE sul petrolio russo",
+      "date": "2022-12-05",
+      "description": "Entra in applicazione il price cap sul petrolio russo trasportato via mare e il relativo divieto di importazione nell'UE.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/it/policies/sanctions-against-russia/timeline-sanctions-against-russia/"
+    },
+    {
+      "id": "EVT-2023-02",
+      "event": "Embargo UE sui prodotti petroliferi russi",
+      "date": "2023-02-05",
+      "description": "Entrano in applicazione le restrizioni UE sulle importazioni via mare di prodotti petroliferi raffinati russi.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/policies/sanctions-against-russia-explained/"
+    },
+    {
+      "id": "EVT-2023-09",
+      "event": "Estensione dei tagli volontari di Arabia Saudita e Russia",
+      "date": "2023-09-05",
+      "description": "Arabia Saudita e Russia estendono i tagli volontari all'offerta, contribuendo a sostenere il mercato petrolifero.",
+      "type": "market",
+      "country": "EU",
+      "source": "https://www.opec.org/opec_web/en/press_room/7263.htm"
+    },
+    {
+      "id": "EVT-2024-01",
+      "event": "Crisi del Mar Rosso",
+      "date": "2024-01-12",
+      "description": "Gli attacchi alle navi nel Mar Rosso aumentano il rischio sulle rotte energetiche e spingono diversi operatori a deviare le navi attorno al Capo di Buona Speranza.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-february-2024"
+    },
+    {
+      "id": "EVT-2024-04",
+      "event": "Attacco iraniano a Israele",
+      "date": "2024-04-13",
+      "description": "L'Iran lancia un attacco diretto contro Israele, aumentando il rischio di un'estensione regionale del conflitto e il premio geopolitico sul petrolio.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/policies/eu-position-on-the-situation-in-the-middle-east/"
+    },
+    {
+      "id": "EVT-2024-10",
+      "event": "Escalation delle tensioni Iran-Israele",
+      "date": "2024-10-01",
+      "description": "L'attacco missilistico iraniano contro Israele aumenta le preoccupazioni per una possibile interruzione delle forniture energetiche mediorientali.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.iea.org/reports/oil-market-report-october-2024"
+    },
+    {
+      "id": "EVT-2025-01",
+      "event": "Insediamento di Donald Trump",
+      "date": "2025-01-20",
+      "description": "Donald Trump assume nuovamente la presidenza degli Stati Uniti, con un programma energetico e commerciale che diventa un fattore di attenzione per i mercati petroliferi.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.whitehouse.gov/administration/"
+    },
+    {
+      "id": "EVT-2025-02",
+      "event": "Nuove pressioni e sanzioni USA sull'Iran",
+      "date": "2025-02-04",
+      "description": "La nuova amministrazione Trump riattiva la politica di massima pressione sull'Iran e rafforza le misure contro le esportazioni petrolifere iraniane.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://home.treasury.gov/news/press-releases"
+    },
+    {
+      "id": "EVT-2026-01",
+      "event": "Riequilibrio delle accise italiane tra benzina e gasolio",
+      "date": "2026-01-01",
+      "description": "Dal 1 gennaio 2026 le aliquote ordinarie di accisa su benzina e gasolio vengono portate a 672,90 euro per mille litri, con riduzione sulla benzina e aumento sul gasolio rispetto alle aliquote precedenti.",
+      "type": "fiscal",
+      "country": "IT",
+      "source": "https://www.normattiva.it/eli/id/2026/06/27/26A03280/ORIGINAL"
+    },
+    {
+      "id": "EVT-2026-02",
+      "event": "Inizio della guerra USA-Israele-Iran",
+      "date": "2026-02-28",
+      "description": "Gli Stati Uniti e Israele avviano attacchi contro l'Iran; il conflitto produce forti perturbazioni sui mercati energetici e sulle rotte petrolifere regionali.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.reuters.com/business/energy/tanker-traffic-slows-strait-hormuz-after-us-iran-clashes-2026-07-10/"
+    },
+    {
+      "id": "EVT-2026-04",
+      "event": "Cessate il fuoco USA-Iran",
+      "date": "2026-04-07",
+      "description": "Viene annunciato un cessate il fuoco tra Stati Uniti e Iran, successivamente esteso nel quadro dei negoziati per un accordo più stabile.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/it/policies/eu-position-situation-middle-east/"
+    },
+    {
+      "id": "EVT-2026-05-22",
+      "event": "UE amplia le sanzioni legate alla libertà di navigazione a Hormuz",
+      "date": "2026-05-22",
+      "description": "Il Consiglio dell'UE amplia il quadro sanzionatorio per colpire soggetti coinvolti nelle azioni iraniane che minacciano la libertà di navigazione nello Stretto di Hormuz.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/it/policies/sanctions-against-iran/"
+    },
+    {
+      "id": "EVT-2026-05-23",
+      "event": "Riduzione temporanea delle accise italiane",
+      "date": "2026-05-23",
+      "description": "L'Italia ridetermina temporaneamente le accise: 622,90 euro per mille litri sulla benzina e 572,90 euro per mille litri sul gasolio fino al 6 giugno.",
+      "type": "fiscal",
+      "country": "IT",
+      "source": "https://www.normattiva.it/eli/id/2026/06/27/26A03280/ORIGINAL"
+    },
+    {
+      "id": "EVT-2026-06-08",
+      "event": "UE adotta nuove sanzioni per le azioni a Hormuz",
+      "date": "2026-06-08",
+      "description": "Il Consiglio UE inserisce due persone e un'entità nel regime sanzionatorio relativo alle azioni che ostacolano la libertà di navigazione nello Stretto di Hormuz.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.consilium.europa.eu/en/press/press-releases/2026/06/08/freedom-of-navigation-in-the-strait-of-hormuz-eu-lists-two-individuals-and-one-entity/"
+    },
+    {
+      "id": "EVT-2026-06-17",
+      "event": "Memorandum d'intesa USA-Iran",
+      "date": "2026-06-17",
+      "description": "USA e Iran raggiungono un memorandum d'intesa provvisorio che include disposizioni relative al cessate il fuoco, alle vendite di petrolio iraniano e alla riapertura dello Stretto di Hormuz.",
+      "type": "geopolitical",
+      "country": "EU",
+      "source": "https://www.reuters.com/world/middle-east/us-iran-deal-promises-end-war-how-it-will-work-remains-unclear-2026-06-16/"
+    },
+    {
+      "id": "EVT-2026-07-07",
+      "event": "Nuovi attacchi USA contro l'Iran",
+      "date": "2026-07-07",
+      "description": "Gli Stati Uniti lanciano nuovi attacchi contro l'Iran dopo attacchi contro navi commerciali nello Stretto di Hormuz; viene inoltre revocata una licenza che consentiva temporaneamente vendite di petrolio iraniano.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.reuters.com/world/middle-east/ship-hit-hormuz-millions-march-ayatollah-iran-says-no-talks-unless-trump-halts-2026-07-07/"
+    },
+    {
+      "id": "EVT-2026-07-10",
+      "event": "Trump dichiara terminato il cessate il fuoco",
+      "date": "2026-07-10",
+      "description": "Trump dichiara terminato il precedente cessate il fuoco, mentre USA e Iran continuano i contatti diplomatici e aumentano le tensioni nello Stretto di Hormuz.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.reuters.com/business/energy/tanker-traffic-slows-strait-hormuz-after-us-iran-clashes-2026-07-10/"
+    },
+    {
+      "id": "EVT-2026-07-13",
+      "event": "Notifica di Trump al Congresso sulla ripresa delle ostilità",
+      "date": "2026-07-10",
+      "description": "Trump invia al Congresso la notifica formale relativa alla ripresa delle ostilità con l'Iran a partire dal 7 luglio.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.reuters.com/world/us/trump-sends-congress-formal-notice-iran-conflict-has-resumed-2026-07-13/"
+    },
+    {
+      "id": "EVT-2026-09-18",
+      "event": "Nuova riduzione temporanea dell'accisa sul diesel",
+      "date": "2026-09-18",
+      "description": "Il governo italiano ridetermina temporaneamente l'accisa sul gasolio a 572,90 euro per mille litri dal 18 al 25 settembre, con una successiva disciplina prevista fino al 5 ottobre.",
+      "type": "fiscal",
+      "country": "IT",
+      "source": "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.codiceRedazionale=26G00181&atto.dataPubblicazioneGazzetta=2026-09-17&bloccoAggiornamentoBreadCrumb=true&classica=true&dataVigenza=18/09/2026&generaTabId=true&qId=&tabID=&tipoDettaglio=singolavigenza&title=lbl.dettaglioAtto"
+    },
+    {
+      "id": "EVT-2026-09-20",
+      "event": "Nuova escalation USA-Iran e minacce di Trump",
+      "date": "2026-09-20",
+      "description": "Nuove minacce tra Stati Uniti e Iran seguono attacchi dei ribelli Houthi e nuove tensioni sul controllo delle rotte energetiche regionali; Trump dichiara di essere aperto a un incontro con il presidente iraniano.",
+      "type": "trump",
+      "country": "US",
+      "source": "https://www.reuters.com/world/asia-pacific/iran-warns-against-new-escalation-by-us-allies-2026-09-20/"
+    },
+    {
+      "id": "EVT-2026-09-28",
+      "event": "Eni announce price cap on gasoline and diesel",
+      "date": "2026-09-28",
+      "description": "Italian oil company Eni, followed later by other distriburs, announced price cap of 1.99 €/L for gasoline, and of 2.19 €/L for diesel, in the Italian market, starting from september 28th",
+      "type": "market",
+      "country": "IT",
+      "source": ""
+    }
+  ]
+}
