@@ -1,0 +1,86 @@
+name: Update European Commission oil bulletin
+
+on:
+  schedule:
+    - cron: "30 10 * * 4"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-oil-bulletin-update
+  cancel-in-progress: false
+
+jobs:
+  refresh-workbook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download and validate latest Commission workbook
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urljoin, urlparse, parse_qs
+          from urllib.request import Request, urlopen
+          import zipfile
+          import io
+
+          page_url = "https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en"
+          expected_name = "Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx"
+
+          class LinkParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links = []
+              def handle_starttag(self, tag, attrs):
+                  if tag == "a":
+                      attrs = dict(attrs)
+                      href = attrs.get("href", "")
+                      filename = parse_qs(urlparse(href).query).get("filename", [""])[0]
+                      if expected_name.lower() in (filename or href).lower():
+                          self.links.append(href)
+
+          request = Request(page_url, headers={"User-Agent": "fuel-analysis-data-refresh/1.0"})
+          with urlopen(request, timeout=60) as response:
+              html = response.read().decode("utf-8", errors="replace")
+
+          parser = LinkParser()
+          parser.feed(html)
+          if not parser.links:
+              raise SystemExit("Could not find the Commission's price developments XLSX link.")
+          download_url = urljoin(page_url, parser.links[0])
+
+          request = Request(download_url, headers={"User-Agent": "fuel-analysis-data-refresh/1.0"})
+          with urlopen(request, timeout=120) as response:
+              workbook = response.read()
+
+          if not workbook.startswith(b"PK"):
+              raise SystemExit("Downloaded response is not an XLSX/ZIP workbook.")
+          with zipfile.ZipFile(io.BytesIO(workbook)) as archive:
+              if "xl/workbook.xml" not in archive.namelist():
+                  raise SystemExit("Downloaded XLSX is missing xl/workbook.xml.")
+              archive.testzip()  # Raise on corrupt ZIP members.
+
+          destination = Path("data") / expected_name
+          if destination.read_bytes() == workbook:
+              print("The repository workbook is already current; no commit needed.")
+          else:
+              destination.write_bytes(workbook)
+              print(f"Updated {destination} ({len(workbook)} bytes).")
+          PY
+
+      - name: Commit workbook update when changed
+        run: |
+          if git diff --quiet -- data/Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx; then
+            echo "No workbook changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx
+          git commit -m "Update weekly European Commission oil bulletin"
+          git push
