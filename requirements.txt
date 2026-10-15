@@ -1,7 +1,7 @@
 pandas
 numpy
 dash
-dash-bootstrap-component
+dash-bootstrap-components
 plotly
 yfinance
 scipy
