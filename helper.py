@@ -1,7 +1,6 @@
 import pandas as pd
 import yfinance as yf
 import datetime
-from scipy.stats import pearsonr
 import json
 from pathlib import Path
 
@@ -12,13 +11,13 @@ inflation_path = Path(r"data\HICP.csv")
 today = str(datetime.datetime.today().date())
 
 # Prices dataframe 
-df = pd.read_excel(r"C:\Coding\oil-prices\data\Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx", sheet_name="Prices with taxes")
+df = pd.read_excel(df_path, sheet_name="Prices with taxes")
 df.rename(columns={'Consumer prices of petroleum products inclusive of duties and taxes':'Date'}, inplace=True)
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset='Date')
 df = df.sort_values(by='Date', ascending=True)
 # Prices without tax
-df_tax = pd.read_excel(r"C:\Coding\oil-prices\data\Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx", sheet_name="Prices wo taxes")
+df_tax = pd.read_excel(df_path, sheet_name="Prices wo taxes")
 df_tax.rename(columns={'Consumer prices of petroleum products net of duties and taxes':'Date'}, inplace=True)
 df_tax['Date'] = pd.to_datetime(df_tax['Date'], errors='coerce')
 df_tax = df_tax.dropna(subset='Date')

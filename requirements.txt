@@ -3,7 +3,5 @@ numpy
 dash
 dash-bootstrap-components
 plotly
-yfinance
-scipy
+yfinanc
 openpyxl
-statsmodels
