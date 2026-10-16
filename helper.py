@@ -2,12 +2,13 @@ import pandas as pd
 import yfinance as yf
 import datetime
 import json
+import os
 from pathlib import Path
 
-
-df_path = Path(r"data\Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx")
-json_path = Path(r"data\fuel_price_events_2007_2026.json")
-inflation_path = Path(r"data\HICP.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df_path = os.path.join(BASE_DIR, "data", "Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx")
+json_path = os.path.join(BASE_DIR, "data", "fuel_price_events_2007_2026.json")
+inflation_path = os.path.join(BASE_DIR, "data", "HICP.csv")
 today = str(datetime.datetime.today().date())
 
 # Prices dataframe 
