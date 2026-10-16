@@ -3,5 +3,5 @@ numpy
 dash
 dash-bootstrap-components
 plotly
-yfinanc
+yfinance
 openpyxl
