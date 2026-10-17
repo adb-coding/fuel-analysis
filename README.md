@@ -1,8 +1,17 @@
 # Eurpean Fuel Analysis Dashboard
 
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://adbcoding.pythonanywhere.com/)
+![Plotly](https://img.shields.io/badge/Plotly-%233F4F75.svg?style=for-the-badge&logo=plotly&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+
 Have you ever wondered how the gasoline and diesel prices differ in countries inside the European Union, and how they are correlated with the oil's price? This project tries to answer this question giving a simple dashboard to compare historical weekly prices for these two fuels and compare them against the price of Brent oil, in order to be more aware of the recent spikes in prices. 
 
+
 ## 📊 Dashboard Structure
+
+An interactive live version is consultable at this [link](https://adbcoding.pythonanywhere.com/). The dataset is updated each Thursday at 10:30 UTC +1, through automated GitHub actions. 
 
 ![Dashboard Preview](assets/dashboard.gif)
 
