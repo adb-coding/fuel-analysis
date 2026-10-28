@@ -17,12 +17,14 @@ df.rename(columns={'Consumer prices of petroleum products inclusive of duties an
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 df = df.dropna(subset='Date')
 df = df.sort_values(by='Date', ascending=True)
+df = df.reset_index(drop=True)
 # Prices without tax
 df_tax = pd.read_excel(df_path, sheet_name="Prices wo taxes")
 df_tax.rename(columns={'Consumer prices of petroleum products net of duties and taxes':'Date'}, inplace=True)
 df_tax['Date'] = pd.to_datetime(df_tax['Date'], errors='coerce')
 df_tax = df_tax.dropna(subset='Date')
 df_tax = df_tax.sort_values(by='Date', ascending=True)
+df_tax = df_tax.reset_index(drop=True)
 
 
 
@@ -35,6 +37,8 @@ def load_df(countries):
     prices['EU_Diesel'] = df['EU_price_with_tax_diesel'] / 1000
     prices['EU_Gas_wo_tax'] = df_tax['EU_price_wo_tax_euro95'] / 1000
     prices['EU_Diesel_wo_tax'] = df_tax['EU_price_wo_tax_diesel'] / 1000
+    prices['EU_Gas_tax_comp'] = prices['EU_Gas'] - prices['EU_Gas_wo_tax']
+    prices['EU_Diesel_tax_comp'] = prices['EU_Diesel'] - prices['EU_Diesel_wo_tax']
     
     for country in countries:
         # get the diesel and gas prices
@@ -96,19 +100,24 @@ def calculate_last_price(country_code):
     average_diesel = []
     last_gas = []
     average_gas = []
+    last_diesel_pretax = []
+    last_gas_pretax = []
 
     for i in range(len(last_price)):
-        last_diesel.append(df[f"{last_price.iloc[i,0]}_price_with_tax_diesel"][2]/1000)
-        average_diesel.append(df[f"{last_price.iloc[i,0]}_price_with_tax_diesel"][2:12].mean() / 1000)
-        last_gas.append(df[f"{last_price.iloc[i,0]}_price_with_tax_euro95"][2]/1000)
-        average_gas.append(df[f"{last_price.iloc[i,0]}_price_with_tax_euro95"][2:12].mean() / 1000)
+        last_diesel.append(df[f"{last_price.iloc[i,0]}_price_with_tax_diesel"].iloc[-1]/1000)
+        average_diesel.append(df[f"{last_price.iloc[i,0]}_price_with_tax_diesel"][len(df)-10:len(df)].mean() / 1000)
+        last_diesel_pretax.append(df_tax[f"{last_price.iloc[i,0]}_price_wo_tax_diesel"].iloc[-1]/1000)
+        last_gas.append(df[f"{last_price.iloc[i,0]}_price_with_tax_euro95"].iloc[-1]/1000)
+        average_gas.append(df[f"{last_price.iloc[i,0]}_price_with_tax_euro95"][len(df)-10:len(df)].mean() / 1000)
+        last_gas_pretax.append(df_tax[f"{last_price.iloc[i,0]}_price_wo_tax_euro95"].iloc[-1]/1000)
 
 
     last_price['Gas'] = last_gas
     last_price['Diesel'] = last_diesel
     last_price['AvgGas'] = average_gas
     last_price['AvgDiesel'] = average_diesel
-
+    last_price['Gas_pretax'] = last_gas_pretax
+    last_price['Diesel_pretax'] = last_diesel_pretax
     last_price['IncreaseGas'] = round((last_price['Gas'] - last_price['AvgGas'])/ last_price['AvgGas'] * 100, 2)
     last_price['IncreaseDiesel'] = round((last_price['Diesel'] - last_price['AvgDiesel'])/ last_price['AvgDiesel'] * 100, 2)
 
@@ -146,6 +155,7 @@ def calculate_date_price(country_code, date, df):
     date_price['Gas_tax_comp'] = gas_comp
     date_price['Diesel_change'] = diesel_change
     date_price['Gas_change'] = gas_change
+    date_price.dropna()
 
     return date_price
 
@@ -155,8 +165,8 @@ def calculate_pct_change(country_code, brent):
     pct_change = pd.DataFrame({'Date':df['Date']})
     
     for i in country_code:
-        pct_change[f'{i}_gas_change'] = round(df[f'{i}_price_with_tax_euro95'].pct_change(fill_method=None).dropna()*100, 3)
-        pct_change[f'{i}_diesel_change'] = round(df[f'{i}_price_with_tax_diesel'].pct_change(fill_method=None).dropna()*100, 3) 
+        pct_change[f'{i}_gas_change'] = round(df.sort_values(by='Date', ascending=False)[f'{i}_price_with_tax_euro95'].pct_change(fill_method=None).dropna()*100, 3)
+        pct_change[f'{i}_diesel_change'] = round(df.sort_values(by='Date', ascending=False)[f'{i}_price_with_tax_diesel'].pct_change(fill_method=None).dropna()*100, 3) 
 
 
     return pct_change
@@ -297,3 +307,17 @@ def extract_date():
     Extract the last date registered to update the footer
     '''
     return str(df['Date'].max().date())
+
+
+def calculate_event_price(date_event, date_end, df, brent, window_size=4):
+    date_event = pd.to_datetime(date_event)
+    date_end = pd.to_datetime(date_end)
+    delta_elapsed = date_event - (date_end - date_event)
+
+    df_pre_event = df.loc[(df['Date'] >= delta_elapsed)  & (df['Date'] <= date_event)]
+    df_post_event = df.loc[(df['Date']>= date_event) & (df['Date'] <= date_end)]
+    df_pre_event = df_pre_event.merge(brent['Close'], left_index=True, right_index=True, how="inner")
+    df_post_event = df_post_event.merge(brent['Close'], left_index=True, right_index=True, how="inner")
+
+    df_pre_ma = df_pre_event.rolling(window_size).mean().dropna().reset_index(drop=True)
+    df_post_ma = df_post_event.rolling(window_size).mean().dropna().reset_index(drop=True)

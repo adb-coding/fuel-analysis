@@ -19,6 +19,7 @@ colors = {
 
 
 color_map = {
+    "EU": "#0909BE",
     "AT": "#FA0101",
     "BE": "#553811",
     "BG": "#404040",
@@ -132,7 +133,7 @@ layout = dbc.Container([
             ]
         ),
         ], start_collapsed=True, className="pd-1 mb-3"),
-        html.H4(['Correlation', html.I(className="fa-solid fa-circle-question fa-xs ms-2", id="help-icon-corr", style={'cursor':'point','color':['#d6efd']})]),
+        html.H4(['Correlation', html.I(className="fa-solid fa-circle-question fa-xs ms-2", id="help-icon-corr", style={"cursor":"pointer", "color":["#0d6efd"]})]),
         dbc.Tooltip("Correlation is the statistical relation of two variables and their tendency to move together. Dots closer to the line indicates higher correlation, either negative or positive. Here is reported the Pearson's statistical correlation of the price charts. Note that correlation does not imply statistical causation.",
                     target="help-icon-corr",
                     placement="right"),

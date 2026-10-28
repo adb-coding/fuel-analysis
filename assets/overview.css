@@ -1,0 +1,38 @@
+.overview-page {
+    background-color: #F4F7FA;
+    color: #243447;
+}
+
+/* Card dei quattro indicatori */
+.overview-page .card {
+    background-color: #FFFFFF;
+    border: 1px solid #DCE4EC;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(36, 52, 71, 0.05);
+}
+
+.chart-card {
+    height: 100%;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #DCE4EC;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(36, 52, 71, 0.05);
+}
+
+.chart-card h4 {
+    color: #243447;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.chart-card p {
+    color: #66788A;
+}
+
+.ranking-summary {
+    color: #66788A;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}

@@ -15,6 +15,8 @@ navbar = dbc.Navbar(
         dbc.NavbarBrand([html.I(className="fa-solid fa-droplet"), " European Fuel Prices"], href="/"),
         dbc.Nav([
             dbc.NavItem(dbc.NavLink(
+                [html.I(className="fa-solid fa-magnifying-glass-chart ms-2"), ' Overview'], href="/overview", active="exact")),
+            dbc.NavItem(dbc.NavLink(
                 [html.I(className="fa-solid fa-arrow-trend-up ms-2"), ' Price Chart'], href="/", active="exact")),
             dbc.NavItem(dbc.NavLink(
                 [html.I(className="fa-solid fa-map ms-2"), ' Map'], href="/map", active="exact")),
